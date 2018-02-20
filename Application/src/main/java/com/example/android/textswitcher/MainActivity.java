@@ -1,18 +1,3 @@
-/*
- * Copyright 2013 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *       http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 
 package com.example.android.textswitcher;
 
@@ -36,7 +21,7 @@ import android.widget.ImageView;
  */
 public class MainActivity extends Activity {
     private TextSwitcher mSwitcher;
-    private int mCounter, nCounter;
+    private int mCounter=0;
     private Button nextButton;
     private Button backButton;
     private ImageView imageView;
@@ -70,57 +55,12 @@ public class MainActivity extends Activity {
          * the new value is displayed in the TextSwitcher. The change of text is
          * automatically animated using the in/out animations set above.
          */
-        backButton = findViewById(R.id.b2);
-        backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                nCounter++;
-
-                if (mCounter == 1) {
-                    mSwitcher.setText("Mercury ดาวพุธ");
-                    imageView = (ImageView) findViewById(R.id.img);
-                    imageView.setImageResource(R.drawable.a);
-                } else if (mCounter == 2) {
-                    mSwitcher.setText("Venus ดาวศุกร์");
-                    imageView = (ImageView) findViewById(R.id.img);
-                    imageView.setImageResource(R.drawable.b);
-                } else if (mCounter == 3) {
-                    mSwitcher.setText("Eath โลก");
-                    imageView = (ImageView) findViewById(R.id.img);
-                    imageView.setImageResource(R.drawable.c);
-                } else if (mCounter == 4) {
-                    mSwitcher.setText("Mars ดาวอังคาร");
-                    imageView = (ImageView) findViewById(R.id.img);
-                    imageView.setImageResource(R.drawable.d);
-                } else if (mCounter == 5) {
-                    mSwitcher.setText("Jupiter ดาวพฤหัสบดี");
-                    imageView = (ImageView) findViewById(R.id.img);
-                    imageView.setImageResource(R.drawable.e);
-                } else if (mCounter == 6) {
-                    mSwitcher.setText("Suturn ดาวเสาร์");
-                    imageView = (ImageView) findViewById(R.id.img);
-                    imageView.setImageResource(R.drawable.f);
-                } else if (mCounter == 7) {
-                    mSwitcher.setText("Uranus ดาวยูเรนัส");
-                    imageView = (ImageView) findViewById(R.id.img);
-                    imageView.setImageResource(R.drawable.g);
-                } else if (mCounter == 8) {
-                    mSwitcher.setText("Neptune ดาวเนปจูน");
-                    imageView = (ImageView) findViewById(R.id.img);
-                    imageView.setImageResource(R.drawable.h);
-                }
-                // mSwitcher.setText("asdasdasdasdasdasd");
-                //mSwitcher.setText("4552");
-                // END_INCLUDE(settext)
-            }
-        });
-
         nextButton = findViewById(R.id.b1);
         nextButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                mCounter--;
+                mCounter++;
                 // BEGIN_INCLUDE(settext)
 
                 if (mCounter == 1) {
@@ -161,6 +101,53 @@ public class MainActivity extends Activity {
                 // END_INCLUDE(settext)
             }
         });
+
+        backButton = findViewById(R.id.b2);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mCounter--;
+
+                if (mCounter == 1) {
+                    mSwitcher.setText("Mercury ดาวพุธ");
+                    imageView = (ImageView) findViewById(R.id.img);
+                    imageView.setImageResource(R.drawable.a);
+                } else if (mCounter == 2) {
+                    mSwitcher.setText("Venus ดาวศุกร์");
+                    imageView = (ImageView) findViewById(R.id.img);
+                    imageView.setImageResource(R.drawable.b);
+                } else if (mCounter == 3) {
+                    mSwitcher.setText("Eath โลก");
+                    imageView = (ImageView) findViewById(R.id.img);
+                    imageView.setImageResource(R.drawable.c);
+                } else if (mCounter == 4) {
+                    mSwitcher.setText("Mars ดาวอังคาร");
+                    imageView = (ImageView) findViewById(R.id.img);
+                    imageView.setImageResource(R.drawable.d);
+                } else if (mCounter == 5) {
+                    mSwitcher.setText("Jupiter ดาวพฤหัสบดี");
+                    imageView = (ImageView) findViewById(R.id.img);
+                    imageView.setImageResource(R.drawable.e);
+                } else if (mCounter == 6) {
+                    mSwitcher.setText("Suturn ดาวเสาร์");
+                    imageView = (ImageView) findViewById(R.id.img);
+                    imageView.setImageResource(R.drawable.f);
+                } else if (mCounter == 7) {
+                    mSwitcher.setText("Uranus ดาวยูเรนัส");
+                    imageView = (ImageView) findViewById(R.id.img);
+                    imageView.setImageResource(R.drawable.g);
+                } else if (mCounter == 8) {
+                    mSwitcher.setText("Neptune ดาวเนปจูน");
+                    imageView = (ImageView) findViewById(R.id.img);
+                    imageView.setImageResource(R.drawable.h);
+                }
+                // mSwitcher.setText("asdasdasdasdasdasd");
+                //mSwitcher.setText("4552");
+                // END_INCLUDE(settext)
+            }
+        });
+
+
 
         // Set the initial text without an animation
         // mSwitcher.setCurrentText(String.valueOf(mCounter));
